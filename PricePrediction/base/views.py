@@ -85,7 +85,7 @@ def laptop(request):
         predicted_log_price = model.predict(query_df)
         predicted_price = np.exp(predicted_log_price)
 
-        return HttpResponse(f"Brand: {brand}, Operating System: {operating_system}, Processor: {processor}, Screen Size: {screen_size}, Storage: {storage}, RAM: {ram}, Touch Screen: {touch_screen}, Predicted Price: {predicted_price}")
+        return render(request, 'result.html', {'query_data': query_data, 'predicted_price': predicted_price*3.1})
 
     return render(request, 'laptop.html')
 

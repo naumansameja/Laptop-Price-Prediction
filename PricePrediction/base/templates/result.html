@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Prediction Result</title>
+    <link rel="stylesheet" href="{% static 'base/css/result.css' %}">
+</head>
+<body>
+    <h1>Price Prediction Result</h1>
+    <div class="result-container">
+        <h2>Features Selected:</h2>
+        <ul>
+            <li><strong>Brand:</strong> {{ query_data.Brand }}</li>
+            <li><strong>Operating System:</strong> {{ query_data.Operating_System }}</li>
+            <li><strong>Processor:</strong> {{ query_data.Processor }}</li>
+            <li><strong>Storage:</strong> {{ query_data.Storage }} GB</li>
+            <li><strong>RAM:</strong> {{ query_data.RAM }} GB</li>
+            <li><strong>Screen Size:</strong> {{ query_data.Screen_Size }} inches</li>
+            <li><strong>Touch Screen:</strong> {{ query_data.Touch_Screen }}</li>
+        </ul>
+        {% if predicted_price %}
+            <h2>Predicted Price:</h2>
+            <p>{{ predicted_price }} Pkr</p>
+        {% endif %}
+    </div>
+</body>
+</html>
